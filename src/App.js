@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import OcbcApi from "./components/ocbc";
 
 function App() {
     return (
@@ -8,7 +9,9 @@ function App() {
             <header className="App-header">
                 <p>Demo on Consuming Open Api</p>
             </header>
+            <OcbcApi />
             <section>
+                
                 <button className="App-button" onClick={fetchSaving}>
                     Saving
                 </button>
