@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import './ocbc.css'
+
 class OcbcApi extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +26,7 @@ class OcbcApi extends Component {
                 <button className="App-button" onClick={this.fetchPayNow}>
                     PayNow
                 </button>
-                <p>{this.state.resData}</p>
+                <pre>{this.state.resData}</pre>
             </section>
         );
     }
@@ -42,7 +44,7 @@ class OcbcApi extends Component {
             }
         )
             .then((res) => res.json())
-            .then((data) => this.setState({ resData: JSON.stringify(data) }))
+            .then((data) => this.setState({ resData: JSON.stringify(data, null, 2) }))
             .catch((err) => {
                 console.log(err);
                 return err;
@@ -58,7 +60,7 @@ class OcbcApi extends Component {
             },
         })
             .then((res) => res.json())
-            .then((data) => this.setState({ resData: JSON.stringify(data) }))
+            .then((data) => this.setState({ resData: JSON.stringify(data, null, 2) }))
             .catch((err) => {
                 console.log(err);
                 return err;
@@ -77,7 +79,7 @@ class OcbcApi extends Component {
             }
         )
             .then((res) => res.json())
-            .then((data) => this.setState({ resData: JSON.stringify(data) }))
+            .then((data) => this.setState({ resData: JSON.stringify(data, null, 2) }))
             .catch((err) => {
                 console.log(err);
                 return err;
@@ -106,7 +108,7 @@ class OcbcApi extends Component {
             }
         )
             .then((res) => res.json())
-            .then((data) => this.setState({ resData: JSON.stringify(data) }))
+            .then((data) => this.setState({ resData: JSON.stringify(data, null, 2) }))
             .catch((err) => {
                 console.log(err);
                 return err;
