@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import OcbcApi from "./components/ocbc";
-import Redirect from './components/redirect';
-import Callback from './components/callback';
+import Redirect from "./components/redirect";
+import Callback from "./components/callback";
 
 function App() {
     return (
@@ -13,15 +13,21 @@ function App() {
                 <p>Demo on Consuming Open Api</p>
             </header>
             <BrowserRouter>
-            <div>
-                <Link to="/login">Login</Link>
-                <Switch>
-                <Route path="/login"> <Redirect
-                 loc ="https://api.ocbc.com/ocbcauthentication/api/oauth2/authorize?client_id=FsORvVewCfDcDdX4IfxJB6rfYSsa&redirect_uri=https://oauth.pstmn.io/v1/callback&scope=transactional" />
-                 </Route>
-                 <Route path="/callback" component={Callback} />
-                </Switch>
-            </div>
+                <div>
+                    <Link to="/login">Login</Link>
+                    <Switch>
+                        <Route
+                            path="/login"
+                            render={(props) => (
+                                <Redirect
+                                    {...props}
+                                    loc="https://api.ocbc.com/ocbcauthentication/api/oauth2/authorize?client_id=FsORvVewCfDcDdX4IfxJB6rfYSsa&redirect_uri=https://oauth.pstmn.io/v1/callback&scope=transactional"
+                                />
+                            )}
+                        />
+                        <Route path="/callback" component={Callback} />
+                    </Switch>
+                </div>
             </BrowserRouter>
             <OcbcApi />
             <section>
